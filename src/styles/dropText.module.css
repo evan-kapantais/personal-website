@@ -1,0 +1,26 @@
+.item {
+  position: relative;
+  font-size: var(--fontSize-3);
+  font-size: inherit;
+  color: var(--primary-color);
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+  transition: all 200ms;
+}
+
+.item p {
+  margin: 0;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+.item a {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.item:not(:last-of-type) {
+  margin-right: 1.75rem;
+}

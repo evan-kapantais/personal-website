@@ -1,0 +1,16 @@
+.menu {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  color: var(--primary-color);
+  z-index: 99;
+}
+
+.menu nav li {
+  display: inline;
+  font-size: var(--fontSize-4);
+}
+
+.menu nav li:not(:last-of-type) {
+  margin-right: 1rem;
+}

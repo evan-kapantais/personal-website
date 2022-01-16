@@ -1,0 +1,59 @@
+.layout {
+  position: relative;
+  background: var(--background-color);
+}
+
+.admin {
+  position: fixed;
+  top: 10rem;
+  left: 2rem;
+  color: #333;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.389);
+  cursor: pointer;
+  z-index: 999;
+}
+
+.admin:hover {
+  background: #fff;
+}
+
+.layout main {
+  padding: 0 4rem;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+}
+
+.headerHome {
+  justify-content: flex-end;
+}
+
+.header h1 {
+  color: var(--primary-color);
+}
+
+.burger div {
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+.burger div:first-of-type {
+  margin-bottom: 0.75rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+}

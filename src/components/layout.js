@@ -1,36 +1,64 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useState, useEffect } from "react";
+import { Link } from "gatsby";
+import Menu from "./Menu";
+import Footer from "./Footer";
+
+import * as styles from "../styles/layout.module.css";
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  let header
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [wireframe, set] = useState(false);
 
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+  // Toggle wireframe
+  useEffect(() => {
+    const all = [...document.querySelectorAll("body *")].filter(
+      elem => elem.tagName !== "body" && elem.tagName !== "html"
+    );
+
+    if (wireframe) {
+      all.forEach(elem => {
+        const border = `1px solid rgba(${Math.random() * 255}, ${
+          Math.random() * 255
+        }, ${Math.random() * 255}, 0.4)`;
+
+        elem.style.border = border;
+      });
+    } else {
+      all.forEach(elem => (elem.style.border = "none"));
+    }
+  }, [wireframe]);
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <div className={styles.layout}>
+      <button
+        type="button"
+        className={styles.admin}
+        onClick={() => set(!wireframe)}
+      >
+        Wireframe
+      </button>
+      <header
+        className={`${styles.header} ${title === "Home" && styles.headerHome}`}
+      >
+        {title !== "Home" && (
+          <h1>
+            <Link to="/">Evan Kapantais</Link>
+          </h1>
+        )}
+        <button
+          type="button"
+          className={styles.burger}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <div></div>
+          <div></div>
+        </button>
+      </header>
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
+      <Footer />
+      <Menu isMenuOpen={isMenuOpen} />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

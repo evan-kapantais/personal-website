@@ -1,0 +1,207 @@
+.banner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerContainer {
+  text-align: center;
+}
+
+.bannerTitle {
+  font-size: var(--fontSize-9);
+  -webkit-text-fill-color: transparent;
+  background: url(../images/athens.jpeg) no-repeat center / cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px var(--primary-color);
+  letter-spacing: 5px;
+  margin-bottom: 2rem;
+}
+
+.bannerP {
+  font-size: var(--fontSize-7);
+  color: var(--primary-color);
+}
+
+.bannerTitle span {
+  display: inline-block;
+}
+
+.portraitWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.portrait {
+  display: inline-block;
+  width: 300px;
+  border-radius: 50%;
+}
+
+.indexSection:not(.banner) {
+  position: relative;
+  font-size: var(--fontSize-8);
+  line-height: 1.25;
+  margin: 30vh 0;
+}
+
+.indexSection::selection {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
+
+.indexSection p {
+  line-height: 1.25;
+}
+
+#projectsSection p {
+  margin-bottom: 4rem;
+}
+
+.par {
+  font-size: var(--fontSize-8);
+  line-height: 1.25;
+}
+
+.hand {
+  display: inline-block;
+  user-select: none;
+  transform-origin: bottom;
+}
+
+.hoverSpan {
+  display: inline;
+  position: relative;
+  cursor: none;
+  color: var(--primary-color);
+}
+
+.sectionImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms;
+  will-change: transform;
+}
+
+.sectionImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.sectionImageWrapper:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 12.5px);
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: var(--primary-color);
+}
+
+.expand {
+  display: inline;
+}
+
+.react {
+  color: var(--color-react);
+}
+
+.sass {
+  position: relative;
+  color: var(--color-sass);
+}
+
+.sass i {
+  position: absolute;
+  bottom: -2.5rem;
+  left: -2rem;
+  font-size: 2rem;
+  opacity: 0;
+  transition: left 1000ms, opacity 200ms;
+}
+
+.sass:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 10px;
+  background: var(--color-sass);
+  transition: all 1000ms;
+}
+
+.sass:hover i {
+  left: calc(100% - 2rem);
+  opacity: 1;
+}
+
+.sass:hover:after {
+  width: 100%;
+}
+
+.gatsby {
+  color: var(--color-gatsby);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.expandImageWrapper {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 0;
+  height: 64px;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 500ms;
+}
+
+.image {
+  width: 64px;
+  animation: rotate 6s forwards infinite linear;
+}
+
+.letter {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+.projectsPreview {
+  margin-top: 4rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.project {
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translateY(2rem);
+  opacity: 0;
+}
+
+[data-name="projects"]:hover .project {
+  transform: translateY(0);
+  opacity: 1;
+}
