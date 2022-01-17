@@ -35,7 +35,7 @@ const WorkPage = ({ data }) => {
         </h1>
       </section>
       <section className={styles.section}>
-        <h1>Tasks in progress</h1>
+        <h1>In Progress</h1>
         <ul className={styles.wipList}>
           <li>
             <a href="https://github.com/evan-kapantais/get-me-books">
@@ -81,7 +81,7 @@ const WorkPage = ({ data }) => {
             title="spring-text-animation"
             allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
             sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          ></iframe>
+          />
         </div>
         <div className={styles.miniWrapper}>
           <iframe
@@ -96,7 +96,7 @@ const WorkPage = ({ data }) => {
             title="bitter-tdd-9j8gu"
             allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
             sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          ></iframe>
+          />
         </div>
       </section>
     </Layout>

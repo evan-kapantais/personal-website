@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { useSpring, animated, config } from "react-spring";
 
+import maximise from "../images/maximise.svg";
+
 import * as styles from "../styles/project.module.css";
 
 const LinkIcon = () => (
@@ -15,6 +17,7 @@ const LinkIcon = () => (
 
 const ProjectCard = ({ project }) => {
   const [showRepo, setShowRepo] = useState(false);
+  const [paused, setPaused] = useState(false);
   // function formatRepoText(json) {
   //   const rows = [];
 
@@ -25,12 +28,10 @@ const ProjectCard = ({ project }) => {
   //   return rows;
   // }
 
-  console.log(project.video);
-  console.log(project.image.gatsbyImageData);
-
   const imageRef = useRef(null);
   const titleRef = useRef(null);
   const codeRef = useRef(null);
+  const videoRef = useRef();
 
   const arr = [];
 
@@ -98,6 +99,12 @@ const ProjectCard = ({ project }) => {
     // title.classList.add(`${styles.link}`);
   }
 
+  function toggleVideoState(e) {
+    setPaused(!paused);
+
+    paused ? videoRef.current.play() : videoRef.current.pause();
+  }
+
   const repoProps = useSpring({
     from: { y: 0, opacity: 0 },
     to: {
@@ -153,7 +160,6 @@ const ProjectCard = ({ project }) => {
             href={project.repoUrl}
             className={styles.link}
             onMouseEnter={() => setShowRepo(true)}
-            // onMouseLeave={() => setShowRepo(false)}
           >
             <span>Repo</span>
             <LinkIcon />
@@ -170,13 +176,24 @@ const ProjectCard = ({ project }) => {
             ))}
           </animated.pre>
         </div>
-        {project.image && (
-          <animated.div style={imageProps}>
-            <GatsbyImage
-              image={project.image.gatsbyImageData}
-              alt="project image"
-              title={project.title}
-            />
+        {project.video && (
+          <animated.div className={styles.videoWrapper} style={imageProps}>
+            <video autoPlay muted loop ref={videoRef}>
+              <source src={project.video.file.url} type="video/mp4" />
+              <source src={project.video.file.url} type="video/ogg" />
+            </video>
+            <div className={styles.videoOverlay}>
+              <button
+                type="button"
+                className={styles.pauseButton}
+                onClick={toggleVideoState}
+              >
+                {paused ? "▶️" : "⏸"}
+              </button>
+              <button type="button" className={styles.maximiseButton}>
+                <img src={maximise} alt="" />
+              </button>
+            </div>
           </animated.div>
         )}
       </section>
