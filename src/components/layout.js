@@ -4,39 +4,14 @@ import Menu from "./Menu";
 import Footer from "./Footer";
 
 import * as styles from "../styles/layout.module.css";
+import { StaticImage } from "gatsby-plugin-image";
+import Social from "./Social";
 
 const Layout = ({ location, title, children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [wireframe, set] = useState(false);
-
-  // Toggle wireframe
-  useEffect(() => {
-    const all = [...document.querySelectorAll("body *")].filter(
-      elem => elem.tagName !== "body" && elem.tagName !== "html"
-    );
-
-    if (wireframe) {
-      all.forEach(elem => {
-        const border = `1px solid rgba(${Math.random() * 255}, ${
-          Math.random() * 255
-        }, ${Math.random() * 255}, 0.4)`;
-
-        elem.style.border = border;
-      });
-    } else {
-      all.forEach(elem => (elem.style.border = "none"));
-    }
-  }, [wireframe]);
 
   return (
     <div className={styles.layout}>
-      <button
-        type="button"
-        className={styles.admin}
-        onClick={() => set(!wireframe)}
-      >
-        Wireframe
-      </button>
       <header
         className={`${styles.header} ${title === "Home" && styles.headerHome}`}
       >
@@ -56,6 +31,7 @@ const Layout = ({ location, title, children }) => {
       </header>
       <main>{children}</main>
       <Footer />
+      <Social />
       <Menu isMenuOpen={isMenuOpen} />
     </div>
   );

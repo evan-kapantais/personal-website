@@ -1,0 +1,28 @@
+.imageWrapper {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-25%);
+  border-radius: 10px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mobileImage {
+  position: absolute;
+  bottom: -2rem;
+  right: 2rem;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 99px rgba(0, 0, 0, 0.2);
+}
+
+.odd {
+  right: unset;
+  left: 0;
+}

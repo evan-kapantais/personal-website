@@ -1,9 +1,8 @@
 .menu {
   position: absolute;
   top: 4rem;
-  right: 4rem;
+  right: var(--padding-content-inline);
   color: var(--primary-color);
-  z-index: 99;
 }
 
 .menu nav li {

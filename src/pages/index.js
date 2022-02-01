@@ -1,225 +1,255 @@
-import React, { useState } from "react";
+import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { useSpring, useTrail, animated, config, easings } from "react-spring";
+import { graphql } from "gatsby";
 
 import Seo from "../components/seo";
 import Layout from "../components/layout";
 
 import * as styles from "../styles/index.module.css";
-import BannerTitle from "../components/BannerTitle";
-import Stack from "../components/Stack";
+import arrow from "../images/chevron-right-yellow.svg";
+import ProjectCard from "../components/ProjectCard";
+import WipProject from "../components/WipProject";
+import GithubCard from "../components/GithubCard";
+import Polaroids from "../components/Polaroids";
 
-const IndexPage = ({ location }) => {
-  const [showProjects, setShowProjects] = useState(false);
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
-  function moveImage(e) {
-    const span = e.currentTarget;
-    const image = span.firstChild;
+const inProgress = [
+  {
+    title: "Get Me Books",
+    description:
+      "A webscraping app that accepts a Goodreads list link and searches local bookstores for matches. Users will be able to submit bookstore suggestions.",
+    stack: ["express", "puppeteer", "react", "css modules"],
+    repoUrl: "https://github.com/evan-kapantais/get-me-books",
+    siteUrl: "https://getmebooks.com",
+    type: "Personal",
+  },
+  {
+    title: "CSS Generator",
+    description:
+      "A web utility to generate box shadows, radii and text shadows.",
+    stack: ["html", "css", "javascript"],
+    repoUrl: "https://github.com/evan-kapantais/css-generator",
+    type: "Personal",
+  },
+  {
+    title: "Save to Spotify",
+    description:
+      "Lightweight Chrome extension that saves a Youtube song to a specified Spotify playlist.",
+    stack: ["express", "react", "sass"],
+    repoUrl: "https://github.com/evan-kapantais/save-to-spotify",
+    type: "Personal",
+  },
+  {
+    title: "CSS Generator",
+    description:
+      "A web utility to generate box shadows, radii and text shadows.",
+    stack: ["html", "css", "javascript"],
+    repoUrl: "https://github.com/evan-kapantais/css-generator",
+    type: "Personal",
+  },
+  {
+    title: "Save to Spotify",
+    description:
+      "Lightweight Chrome extension that saves a Youtube song to a specified Spotify playlist.",
+    stack: ["express", "react", "sass"],
+    repoUrl: "https://github.com/evan-kapantais/save-to-spotify",
+    type: "Personal",
+  },
+  {
+    title: "CSS Generator",
+    description:
+      "A web utility to generate box shadows, radii and text shadows.",
+    stack: ["html", "css", "javascript"],
+    repoUrl: "https://github.com/evan-kapantais/css-generator",
+    type: "Personal",
+  },
+  {
+    title: "Save to Spotify",
+    description:
+      "Lightweight Chrome extension that saves a Youtube song to a specified Spotify playlist.",
+    stack: ["express", "react", "sass"],
+    repoUrl: "https://github.com/evan-kapantais/save-to-spotify",
+    type: "Personal",
+  },
+];
 
-    if (typeof image === "undefined") return;
+const IndexPage = ({ data }) => {
+  const projects = data.allContentfulProject.nodes;
 
-    image.style.transition = "opacity 200ms";
+  projects.forEach(project => (project.id = projects.indexOf(project)));
 
-    const spanRect = span.getBoundingClientRect();
-    const imageRect = image.getBoundingClientRect();
+  const time = new Date().getHours();
+  const day = new Date().getDay();
 
-    image.style.opacity = 1;
+  const greeting =
+    time < 13 ? "Good morning" : time < 18 ? "Good afternoon" : "Good evening";
 
-    image.style.transform = `translate(${
-      e.clientX - spanRect.left - imageRect.width / 2
-    }px, ${e.clientY - spanRect.top - imageRect.height - 48}px)`;
-  }
-
-  function hideImage(e) {
-    const span = e.currentTarget;
-    const image = span.firstChild;
-
-    if (typeof image === "undefined") return;
-
-    image.style.transition = "all 400ms";
-
-    image.style.opacity = 0;
-
-    span.removeEventListener("mousemove", moveImage);
-  }
-
-  function expand(e) {
-    const wrapper = e.currentTarget.lastChild;
-
-    wrapper.style.maxWidth = wrapper.scrollWidth + "px";
-    wrapper.style.marginLeft = "1rem";
-  }
-
-  function shrink(e) {
-    const wrapper = e.currentTarget.lastChild;
-    wrapper.style.maxWidth = 0;
-    wrapper.style.marginLeft = 0;
-  }
-
-  const hand = useSpring({
-    loop: { reverse: true },
-    to: {
-      rotate: 10,
-    },
-    from: {
-      rotate: -5,
-    },
-    config: { duration: 1000 },
-  });
-
-  const bannerP = useSpring({
-    from: { opacity: 0, rotateX: -90 },
-    to: { opacity: 1, rotateX: 0 },
-    delay: 800,
-    config: config.wobbly,
-  });
-
-  const projectSpring = useSpring({
-    from: { opacity: 0, y: 200 },
-    to: { opacity: showProjects ? 1 : 0, y: showProjects ? 0 : 200 },
-    config: config.wobbly,
-  });
+  const farewell =
+    day > 4 ? "Have a nice weekend!" : `Have an awesome ${days[day]}!`;
 
   return (
     <Layout title="Home">
       <Seo title="Home" />
       <section className={`${styles.indexSection} ${styles.banner}`}>
         <div className={styles.bannerContainer}>
-          {/* <div className={styles.portraitWrapper}>
-            <StaticImage
-              src="../images/portrait.jpg"
-              alt="portrait"
-              title="Evan Kapantais"
-              className={styles.portrait}
-            />
-          </div> */}
-          <BannerTitle />
-          <animated.p style={bannerP} className={styles.bannerP}>
-            Designing stuff for the modern web.
-          </animated.p>
+          <p>{greeting}, I'm</p>
+          <h1>Evan Kapantais.</h1>
+          <h2>I build exciting stuff for the modern web.</h2>
+        </div>
+      </section>
+      <section className={`${styles.indexSection} ${styles.bio}`}>
+        <h2 className={styles.sectionHeading}>
+          <img src={arrow} alt="arrow" width={48} /> whoami
+        </h2>
+        <div className={styles.bioWrapper}>
+          <section>
+            <article>
+              <h3 className={styles.articleHeading}>A Brief</h3>
+              <p>
+                I am a web developer from Greece based somewhere between Athens
+                and Barcelona.
+              </p>
+              <p>
+                I specialise in creating interactive experiences and minimal UI
+                with React. I primarily work on client-side-rendered
+                applications with a heavy emphasis on responsive design,
+                performance and animation.
+              </p>
+            </article>
+            <article>
+              <h3 className={styles.articleHeading}>Tech I Use</h3>
+              <ul className={styles.techList}>
+                <li className={styles.techItem}>
+                  JavaScript <div data-type="front" />
+                </li>
+                <li className={styles.techItem}>
+                  React <div data-type="front" />
+                </li>
+                <li className={styles.techItem}>
+                  Gatsby <div data-type="front" />
+                </li>
+                <li className={styles.techItem}>
+                  Strapi <div data-type="cms" />
+                </li>
+                <li className={styles.techItem}>
+                  Contentful <div data-type="cms" />
+                </li>
+                <li className={styles.techItem}>
+                  Node.js <div data-type="back" />
+                </li>
+                <li className={styles.techItem}>
+                  Express <div data-type="back" />
+                </li>
+                <li className={styles.techItem}>
+                  Puppeteer <div data-type="back" />
+                </li>
+                <li className={styles.techItem}>
+                  Sass <div data-type="style" />
+                </li>
+                <li className={styles.techItem}>
+                  Styled Components <div data-type="style" />
+                </li>
+                <li className={styles.techItem}>
+                  React Spring <div data-type="animation" />
+                </li>
+                <li className={styles.techItem}>
+                  Mongo DB <div data-type="back" />
+                </li>
+              </ul>
+            </article>
+          </section>
+          <Polaroids />
+          <GithubCard />
         </div>
       </section>
       <section className={styles.indexSection}>
-        Hey{" "}
-        <animated.span style={hand} className={styles.hand}>
-          👋
-        </animated.span>
-        , I'm Evan, a <br />
-        <div
-          className={styles.hoverSpan}
-          onMouseMove={moveImage}
-          onMouseLeave={hideImage}
-          data-image="sound-designer"
-        >
-          <div
-            className={styles.sectionImageWrapper}
-            data-title="sound-designer"
-          >
-            <StaticImage
-              src="../images/sound-designer.jpeg"
-              alt="Myself and a shotgun microphone"
-              className={styles.sectionImage}
-              loading="lazy"
-            />
-          </div>
-          sound-designer
-        </div>
-        -turned-web-developer based in{" "}
-        <div
-          className={styles.hoverSpan}
-          onMouseMove={moveImage}
-          onMouseLeave={hideImage}
-          data-image="athens"
-        >
-          <div className={styles.sectionImageWrapper} data-title="athens">
-            <StaticImage
-              src="../images/athens.jpeg"
-              alt="Athens by night"
-              className={styles.sectionImage}
-              loading="lazy"
-            />
-          </div>
-          Athens
-        </div>
-        .
+        <h2 className={styles.sectionHeading}>
+          <img src={arrow} alt="arrow" width={48} /> projects
+        </h2>
+        <ul className={styles.projectsList}>
+          {projects.map(project => (
+            <ProjectCard key={project.contentful_id} project={project} />
+          ))}
+        </ul>
       </section>
       <section className={styles.indexSection}>
-        I specialise in creating interactive visual experiences with{" "}
-        <div
-          className={`${styles.expand} ${styles.react}`}
-          onMouseEnter={expand}
-          onMouseLeave={shrink}
-        >
-          React
-          <div className={styles.expandImageWrapper}>
-            <StaticImage
-              src="../images/react.png"
-              alt="react"
-              className={styles.image}
-            />
-          </div>
-        </div>
-        . My go-to technologies include{" "}
-        <span className={`${styles.expand} ${styles.gatsby}`}>Gatsby</span>,{" "}
-        <span className={`${styles.expand} ${styles.sass}`}>
-          Sass<i>💅</i>
-        </span>{" "}
-        and CSS Modules.
-        <Stack />
+        <h2 className={styles.sectionHeading}>
+          <img src={arrow} alt="arrow" width={48} /> in progress
+        </h2>
+        <ul className={styles.wipList}>
+          {inProgress.map((project, i) => (
+            <WipProject key={i} project={project} />
+          ))}
+        </ul>
       </section>
-      <section className={`${styles.indexSection} ${styles.letters}`}>
-        Some of the topics I’m keen on learning more about include system
-        security, cryptography and web services.
-      </section>
-      <section className={styles.indexSection} id={styles.projectsSection}>
-        <p>
-          My latest projects include a website I designed and developed for{" "}
-          <a
-            href="https://wolt-client.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Wolt Greece
-          </a>{" "}
-          and the portfolio website of photographer{" "}
-          <a
-            href="https://skamagos.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Konstantinos Skamagos
-          </a>
-          .
-        </p>
-        {/* <PageLink link="/work" text="View All Projects" name="projects" /> */}
+      <section className={styles.indexSection}>
+        <h2 className={styles.sectionHeading}>
+          <img src={arrow} alt="arrow" width={48} /> contact
+        </h2>
         <p
-          onMouseEnter={() => setShowProjects(true)}
-          onMouseLeave={() => setShowProjects(false)}
+          style={{
+            fontSize: "var(--fontSize-8)",
+            fontWeight: "var(--fontWeight-black)",
+            lineHeight: "var(--lineHeight-tight)",
+            marginBottom: "4rem",
+          }}
         >
-          Show Projects
+          If you have an exciting project in mind or just want to say hi, feel
+          free to send me an email at{" "}
+          <a href="mailto:evankapantais@gmail.com" className="link">
+            evankapantais@gmail.com
+          </a>{" "}
+          or visit my social media.
         </p>
-        <div className={styles.projectsPreview}>
-          <animated.div style={projectSpring} className={styles.project}>
-            <StaticImage src="../images/skamagos.png" alt="skamagos website" />
-          </animated.div>
-          <animated.div style={projectSpring} className={styles.project}>
-            <StaticImage src="../images/wolt.png" alt="wolt website" />
-          </animated.div>
-          <animated.div style={projectSpring} className={styles.project}>
-            <StaticImage src="../images/rot.png" alt="rot generator" />
-          </animated.div>
-        </div>
-      </section>
-      <section className={styles.indexSection}>
-        If you have an exciting project in mind or just want to say hi, feel
-        free to send me an email at{" "}
-        <a href="mailto:evankapantais@gmail.com" className="link">
-          evankapantais@gmail.com
-        </a>
-        , or visit my social media right below.
+        <p
+          style={{
+            fontSize: "var(--fontSize-8)",
+            fontWeight: "var(--fontWeight-black)",
+            lineHeight: "var(--lineHeight-tight)",
+          }}
+        >
+          {farewell}
+        </p>
       </section>
     </Layout>
   );
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query ProjectsQuery {
+    allContentfulProject {
+      nodes {
+        contentful_id
+        video {
+          file {
+            contentType
+            url
+          }
+        }
+        image {
+          gatsbyImageData(width: 800)
+        }
+        mobileImage {
+          gatsbyImageData(width: 500)
+        }
+        title
+        description
+        stack
+        siteUrl
+        repoUrl
+        type
+      }
+    }
+  }
+`;

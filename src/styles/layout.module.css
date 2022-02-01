@@ -1,32 +1,19 @@
 .layout {
   position: relative;
   background: var(--background-color);
+  margin: 0 auto;
+  max-width: var(--maxWidth-xxl);
 }
 
-.admin {
-  position: fixed;
-  top: 10rem;
-  left: 2rem;
-  color: #333;
-  padding: 0.3rem;
-  background: rgba(255, 255, 255, 0.389);
-  cursor: pointer;
-  z-index: 999;
-}
-
-.admin:hover {
-  background: #fff;
-}
-
-.layout main {
-  padding: 0 4rem;
+.layout > main {
+  padding: 0 var(--padding-content-inline);
 }
 
 .header {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 2rem 4rem;
+  padding: 2rem var(--padding-content-inline);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,5 +42,58 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 4rem;
+  padding: 2rem var(--padding-content-inline);
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socialItem {
+  position: relative;
+  margin: 1.5rem 0;
+  transition: all 350ms;
+}
+
+.socialItem:hover {
+  transform: scale(0.9);
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: 170%;
+  padding: 7px 16px;
+  transform: translate(10px, -50%);
+  background: var(--color-card-background);
+  font-size: var(--fontSize-1);
+  border-radius: 3px;
+  font-weight: var(--fontWeight-black);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 500ms;
+}
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%) rotate(45deg);
+  height: 10px;
+  width: 10px;
+  background: inherit;
+}
+
+.socialItem:hover > .tooltip {
+  opacity: 1;
+  transform: translateX(0) translateY(-50%);
 }

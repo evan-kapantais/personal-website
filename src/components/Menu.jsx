@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { a, useSpring } from "react-spring";
 import { Link } from "gatsby";
 
@@ -19,13 +19,7 @@ const Menu = ({ isMenuOpen }) => {
             <Link to="/">Index</Link>
           </li>
           <li>
-            <Link to="/work">Work</Link>
-          </li>
-          <li>
-            <Link to="/scribblings">Scribblings</Link>
-          </li>
-          <li>
-            <Link to="/cv">CV</Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <li>
             <Link to="/contact">Contact</Link>

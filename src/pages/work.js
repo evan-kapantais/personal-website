@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import { a, useSpring } from "react-spring";
 
 import Layout from "../components/layout";
 import ProjectCard from "../components/ProjectCard";
@@ -15,48 +14,52 @@ const WorkPage = ({ data }) => {
 
   const projects = data.allContentfulProject.nodes;
 
-  // useEffect(() => {
-  //   fetch("https://api.github.com/users/evan-kapantais/repos")
-  //     .then(res => res.json())
-  //     .then(data => setRepos(data));
-  // }, []);
-
   if (repos) {
     projects.forEach(project => {
       project.repoInfo = repos.find(repo => repo.html_url === project.repoUrl);
     });
   }
 
+  function handleIntersect(entries, observer) {
+    entries.forEach(entry => {
+      entry.isIntersecting ? entry.target.play() : entry.target.pause();
+    });
+  }
+
+  function createObserver() {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, options);
+    return observer;
+  }
+
+  // Set up intersection observer
+  useEffect(() => {
+    const videos = document.querySelectorAll(`video`);
+
+    const observer = createObserver();
+
+    videos.forEach(video => observer.observe(video));
+  }, []);
+
   return (
     <Layout title="Work">
-      <section className={`banner`}>
+      <section className="banner">
         <h1>
           <span>Work</span> : an assortment of client and personal projects.
         </h1>
       </section>
       <section className={styles.section}>
-        <h1>In Progress</h1>
-        <ul className={styles.wipList}>
-          <li>
-            <a href="https://github.com/evan-kapantais/get-me-books">
-              A webscraping app
-            </a>{" "}
-            that checks book availability based on Goodreads lists.
-          </li>
-          <li>
-            Working my way through the{" "}
-            <a href="https://freecodecamp.com">Free Code Camp</a> curriculum
-            from where I left off ages ago.
-          </li>
-          <li>
-            <a href="#">A CSS Generator</a> for box shadows, gradients and
-            radii.
-          </li>
-          <li>
-            <a href="#"> A fullstack home finances app</a> to organise
-            month-to-month expenses, savings and stock positions.
-          </li>
-        </ul>
+        <p>
+          I am currently working on a <a>webscraping-slash-book-search app</a>,{" "}
+          a <a>CSS Generator</a> and a <a>personal budgeting app</a>. I have
+          also picked up the <a>Free Code Camp</a> curriculum again from where I
+          left off ages ago.
+        </p>
       </section>
       <section className={`${styles.projects} ${styles.section}`}>
         <h1>Completed Projects</h1>
@@ -67,37 +70,12 @@ const WorkPage = ({ data }) => {
         </ol>
       </section>
       <section className={styles.section}>
-        <h1>Minis</h1>
-        <div className={styles.miniWrapper}>
-          <iframe
-            src="https://codesandbox.io/embed/spring-text-animation-hfwm5?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-            style={{
-              width: "100%",
-              height: "100%",
-              border: 0,
-              borderRadius: 20,
-              overflow: "hidden",
-            }}
-            title="spring-text-animation"
-            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          />
-        </div>
-        <div className={styles.miniWrapper}>
-          <iframe
-            src="https://codesandbox.io/embed/bitter-tdd-9j8gu?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-            style={{
-              width: "100%",
-              height: "100%",
-              border: 0,
-              borderRadius: 20,
-              overflow: "hidden",
-            }}
-            title="bitter-tdd-9j8gu"
-            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          />
-        </div>
+        <p>
+          Have an interesting project in mind? <br /> Feel free to send me an
+          email at
+          {` `}
+          <a href="mailto:evankapantais@gmail.com">evankapantais@gmail.com</a>.
+        </p>
       </section>
     </Layout>
   );
@@ -119,14 +97,15 @@ export const query = graphql`
         image {
           gatsbyImageData(width: 800)
         }
-        repoImage {
-          gatsbyImageData(width: 800)
+        mobileImage {
+          gatsbyImageData(width: 500)
         }
         title
         description
         stack
         siteUrl
         repoUrl
+        type
       }
     }
   }

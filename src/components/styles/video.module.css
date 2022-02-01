@@ -1,0 +1,64 @@
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--color-overlay);
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.videoWrapper:hover .videoOverlay {
+  opacity: 1;
+}
+
+.pauseButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--fontSize-5);
+  color: #fff;
+}
+
+.pauseButton > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 300ms;
+}
+
+.details {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 500ms 300ms;
+}
+
+.videoWrapper:hover .details {
+  opacity: 1;
+}

@@ -11,6 +11,7 @@
   --maxWidth-2xl: 42rem;
   --maxWidth-3xl: 48rem;
   --maxWidth-4xl: 56rem;
+  --maxWidth-xxl: 1700px;
   --maxWidth-full: "100%";
   --maxWidth-wrapper: var(--maxWidth-2xl);
   --spacing-px: "1px";
@@ -28,6 +29,7 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
+  --padding-content-inline: 8rem;
   --fontFamily-sans: azo-sans-web, Montserrat, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
@@ -59,17 +61,20 @@
   --fontSize-8: 5.2rem;
   --fontSize-9: 7.5rem;
   --color-text: #fff;
-  --color-text-light: #4f5969;
+  --color-text-light: #d1d1d1;
   --color-heading: #1a202c;
   --color-heading-black: black;
+  --color-overlay: rgba(255, 255, 255, 0.95);
   --background-color: #1c1c1c;
   --primary-color: #f8f2c1;
   --primary-color-faded: #f8f2c1be;
   --color-accent: #d1dce5;
-  --color-react: #61dafb;
-  --color-sass: #bf4080;
-  --color-gatsby: #7026b9;
   --color-card-background: #2b2b2b;
+  --color-stack-front: rgb(167, 255, 245);
+  --color-stack-back: rgb(255, 232, 149);
+  --color-stack-style: rgb(247, 171, 255);
+  --color-stack-animation: rgb(173, 255, 167);
+  --color-stack-cms: rgb(195, 167, 255);
   /* Animations */
   --animation-curve: cubic-bezier(0.37, 0.97, 0.51, 0.98);
   --menu-transition-duration: 700ms;
@@ -109,13 +114,9 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: 900;
   font-size: var(--fontSize-1);
   color: var(--color-text);
-}
-
-footer {
-  padding: var(--spacing-6) var(--spacing-0);
+  background: var(--background-color);
 }
 
 hr {
@@ -132,7 +133,6 @@ h4,
 h5,
 h6 {
   font-weight: var(--fontWeight-bold);
-  color: var(--color-heading);
 }
 
 h1 {
@@ -180,7 +180,6 @@ p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
   padding: var(--spacing-0);
 }
 
@@ -189,10 +188,6 @@ ol {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-li *:last-child {
-  margin-bottom: var(--spacing-0);
 }
 
 li > ul {
@@ -229,6 +224,10 @@ table {
 
 table thead tr th {
   border-bottom: 1px solid var(--color-accent);
+}
+
+pre {
+  font-family: inherit;
 }
 
 button {
@@ -288,14 +287,6 @@ a {
 .tags li {
   display: inline-block;
   margin-right: 1rem;
-}
-
-select {
-  border: none;
-  background: none;
-  color: var(--primary-color);
-  font-weight: var(--fontWeight-black);
-  outline: none;
 }
 
 .posts {
