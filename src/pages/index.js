@@ -1,5 +1,4 @@
-import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 
 import Seo from "../components/seo";
@@ -11,6 +10,7 @@ import ProjectCard from "../components/ProjectCard";
 import WipProject from "../components/WipProject";
 import GithubCard from "../components/GithubCard";
 import Polaroids from "../components/Polaroids";
+import { handleScroll } from "../utils/window";
 
 const days = [
   "Sunday",
@@ -96,20 +96,29 @@ const IndexPage = ({ data }) => {
   const farewell =
     day > 4 ? "Have a nice weekend!" : `Have an awesome ${days[day]}!`;
 
+  useEffect(() => {
+    typeof window !== "undefined" &&
+      window.addEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Layout title="Home">
       <Seo title="Home" />
-      <section className={`${styles.indexSection} ${styles.banner}`}>
+      <section
+        className={`${styles.indexSection} ${styles.banner} section`}
+        id="home"
+      >
         <div className={styles.bannerContainer}>
           <p>{greeting}, I'm</p>
           <h1>Evan Kapantais.</h1>
           <h2>I build exciting stuff for the modern web.</h2>
         </div>
       </section>
-      <section className={`${styles.indexSection} ${styles.bio}`}>
-        <h2 className={styles.sectionHeading}>
-          <img src={arrow} alt="arrow" width={48} /> whoami
-        </h2>
+      <section
+        className={`${styles.indexSection} ${styles.bio} section`}
+        id="about"
+      >
+        <h2 className={styles.sectionHeading}># whoami</h2>
         <section className={styles.bioTop}>
           <Polaroids />
           <article className={styles.brief}>
@@ -170,30 +179,24 @@ const IndexPage = ({ data }) => {
           <GithubCard />
         </section>
       </section>
-      <section className={styles.indexSection}>
-        <h2 className={styles.sectionHeading}>
-          <img src={arrow} alt="arrow" width={48} /> projects
-        </h2>
+      <section className={`${styles.indexSection} section`} id="projects">
+        <h2 className={styles.sectionHeading}># projects</h2>
         <ul className={styles.projectsList}>
           {projects.map(project => (
             <ProjectCard key={project.contentful_id} project={project} />
           ))}
         </ul>
       </section>
-      <section className={styles.indexSection}>
-        <h2 className={styles.sectionHeading}>
-          <img src={arrow} alt="arrow" width={48} /> in progress
-        </h2>
+      <section className={`${styles.indexSection} section`} id="wip">
+        <h2 className={styles.sectionHeading}># working on</h2>
         <ul className={styles.wipList}>
           {inProgress.map((project, i) => (
             <WipProject key={i} project={project} />
           ))}
         </ul>
       </section>
-      <section className={styles.indexSection}>
-        <h2 className={styles.sectionHeading}>
-          <img src={arrow} alt="arrow" width={48} /> contact
-        </h2>
+      <section className={`${styles.indexSection} section`} id="contact">
+        <h2 className={styles.sectionHeading}># contact</h2>
         <p
           style={{
             fontSize: "var(--fontSize-8)",

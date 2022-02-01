@@ -1,15 +1,13 @@
 .menu {
-  position: absolute;
-  top: 4rem;
-  right: var(--padding-content-inline);
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2rem;
   color: var(--primary-color);
 }
 
 .menu nav li {
-  display: inline;
-  font-size: var(--fontSize-4);
-}
-
-.menu nav li:not(:last-of-type) {
-  margin-right: 1rem;
+  text-align: right;
+  font-size: var(--fontSize-2);
+  margin: 1rem 0;
 }

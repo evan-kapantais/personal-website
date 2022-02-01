@@ -12,17 +12,33 @@ const Menu = ({ isMenuOpen }) => {
   });
 
   return (
-    <a.div style={anim} className={styles.menu}>
+    <a.div className={styles.menu}>
       <nav>
         <ul>
           <li>
-            <Link to="/">Index</Link>
+            <Link className="nav-link" to="#home">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link className="nav-link" to="#about">
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link className="nav-link" to="#projects">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="#wip">
+              In Progress
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="#contact">
+              Contact
+            </Link>
           </li>
         </ul>
       </nav>

@@ -40,14 +40,16 @@ const Text = ({ project, setShowRepo, details, set }) => {
         <Stack stack={project.stack} />
         <div className={styles.links}>
           <a
-            href={project.repoUrl}
+            href={project.siteUrl}
             className={styles.link}
             style={{ marginRight: 16 }}
           >
-            <img src={link} width={20} alt="" />
+            <img src={link} width={20} alt="project link" />
+            <span className={styles.tooltip}>{project.siteUrl}</span>
           </a>
-          <a href={project.repoUrl}>
-            <img src={github} width={20} alt="" />
+          <a href={project.repoUrl} className={styles.link}>
+            <img src={github} width={20} alt="project github" />
+            <span className={styles.tooltip}>{project.repoUrl}</span>
           </a>
         </div>
       </footer>

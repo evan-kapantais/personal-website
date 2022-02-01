@@ -68,6 +68,10 @@
   align-items: center;
 }
 
+.odd footer {
+  flex-direction: row-reverse;
+}
+
 .stackItem {
   display: inline;
   font-size: var(--fontSize-1);
@@ -77,4 +81,41 @@
 
 .stackItem:not(:last-of-type) {
   margin-right: 0.5rem;
+}
+
+.link {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  padding: 7px 16px;
+  transform: translate(-50%, 10px);
+  background: var(--background-color);
+  font-size: var(--fontSize-0);
+  font-weight: var(--fontWeight-black);
+  border-radius: 3px;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 500ms;
+}
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) rotate(45deg);
+  height: 10px;
+  width: 10px;
+  background: inherit;
+}
+
+.link:hover .tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }

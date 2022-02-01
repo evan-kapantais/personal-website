@@ -93,8 +93,10 @@
 html {
   line-height: var(--lineHeight-normal);
   font-size: var(--fontSize-root);
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -292,4 +294,17 @@ a {
 
 .posts {
   margin-bottom: 10rem;
+}
+
+.nav-link {
+  color: var(--color-text-light);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+  font-weight: var(--fontWeight-black);
 }
