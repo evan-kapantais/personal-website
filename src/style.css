@@ -58,7 +58,8 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --fontSize-8: 5.2rem;
+  /* --fontSize-8: 5.2rem; */
+  --fontSize-8: calc(4rem + 1vw);
   --fontSize-9: 7.5rem;
   --color-text: #fff;
   --color-text-light: #d1d1d1;

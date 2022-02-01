@@ -110,66 +110,65 @@ const IndexPage = ({ data }) => {
         <h2 className={styles.sectionHeading}>
           <img src={arrow} alt="arrow" width={48} /> whoami
         </h2>
-        <div className={styles.bioWrapper}>
-          <section>
-            <article>
-              <h3 className={styles.articleHeading}>A Brief</h3>
-              <p>
-                I am a web developer from Greece based somewhere between Athens
-                and Barcelona.
-              </p>
-              <p>
-                I specialise in creating interactive experiences and minimal UI
-                with React. I primarily work on client-side-rendered
-                applications with a heavy emphasis on responsive design,
-                performance and animation.
-              </p>
-            </article>
-            <article>
-              <h3 className={styles.articleHeading}>Tech I Use</h3>
-              <ul className={styles.techList}>
-                <li className={styles.techItem}>
-                  JavaScript <div data-type="front" />
-                </li>
-                <li className={styles.techItem}>
-                  React <div data-type="front" />
-                </li>
-                <li className={styles.techItem}>
-                  Gatsby <div data-type="front" />
-                </li>
-                <li className={styles.techItem}>
-                  Strapi <div data-type="cms" />
-                </li>
-                <li className={styles.techItem}>
-                  Contentful <div data-type="cms" />
-                </li>
-                <li className={styles.techItem}>
-                  Node.js <div data-type="back" />
-                </li>
-                <li className={styles.techItem}>
-                  Express <div data-type="back" />
-                </li>
-                <li className={styles.techItem}>
-                  Puppeteer <div data-type="back" />
-                </li>
-                <li className={styles.techItem}>
-                  Sass <div data-type="style" />
-                </li>
-                <li className={styles.techItem}>
-                  Styled Components <div data-type="style" />
-                </li>
-                <li className={styles.techItem}>
-                  React Spring <div data-type="animation" />
-                </li>
-                <li className={styles.techItem}>
-                  Mongo DB <div data-type="back" />
-                </li>
-              </ul>
-            </article>
-          </section>
+        <section className={styles.bioTop}>
           <Polaroids />
+          <article className={styles.brief}>
+            <p>
+              I am a web developer from Greece based somewhere between Athens
+              and Barcelona.
+            </p>
+            <p>
+              I specialise in creating interactive experiences and minimal UI
+              with React. I primarily work on client-side-rendered applications
+              with a heavy emphasis on responsive design, performance and
+              animation.
+            </p>
+          </article>
+        </section>
+        <section className={styles.bioBottom}>
+          <article className={styles.tech}>
+            <h3 className={styles.articleHeading}>Tech I Use</h3>
+            <ul className={styles.techList}>
+              <li className={styles.techItem}>
+                JavaScript <div data-type="front" />
+              </li>
+              <li className={styles.techItem}>
+                React <div data-type="front" />
+              </li>
+              <li className={styles.techItem}>
+                Gatsby <div data-type="front" />
+              </li>
+              <li className={styles.techItem}>
+                Strapi <div data-type="cms" />
+              </li>
+              <li className={styles.techItem}>
+                Contentful <div data-type="cms" />
+              </li>
+              <li className={styles.techItem}>
+                Node.js <div data-type="back" />
+              </li>
+              <li className={styles.techItem}>
+                Express <div data-type="back" />
+              </li>
+              <li className={styles.techItem}>
+                Puppeteer <div data-type="back" />
+              </li>
+              <li className={styles.techItem}>
+                Sass <div data-type="style" />
+              </li>
+              <li className={styles.techItem}>
+                Styled Components <div data-type="style" />
+              </li>
+              <li className={styles.techItem}>
+                React Spring <div data-type="animation" />
+              </li>
+              <li className={styles.techItem}>
+                Mongo DB <div data-type="back" />
+              </li>
+            </ul>
+          </article>
           <GithubCard />
-        </div>
+        </section>
       </section>
       <section className={styles.indexSection}>
         <h2 className={styles.sectionHeading}>
