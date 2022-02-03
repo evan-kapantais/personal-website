@@ -9,5 +9,18 @@
 .menu nav li {
   text-align: right;
   font-size: var(--fontSize-2);
-  margin: 1rem 0;
+}
+
+.menu nav li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.scrollbar {
+  position: absolute;
+  top: 0;
+  right: -16px;
+  width: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: transform 350ms;
 }

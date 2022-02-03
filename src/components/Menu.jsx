@@ -1,18 +1,14 @@
 import React from "react";
 import { a, useSpring } from "react-spring";
 import { Link } from "gatsby";
+import arrow from "../images/chevron-left.svg";
 
 import * as styles from "../styles/menu.module.css";
 
 const Menu = ({ isMenuOpen }) => {
-  const anim = useSpring({
-    from: { y: -120 },
-    to: { y: isMenuOpen ? 32 : -120 },
-    config: { mass: 1, tension: 170, friction: 12 },
-  });
-
   return (
-    <a.div className={styles.menu}>
+    <a.div className={`${styles.menu} menu`}>
+      <div className={`${styles.scrollbar} nav-scrollbar`} />
       <nav>
         <ul>
           <li>

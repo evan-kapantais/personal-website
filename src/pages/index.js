@@ -5,12 +5,11 @@ import Seo from "../components/seo";
 import Layout from "../components/layout";
 
 import * as styles from "../styles/index.module.css";
-import arrow from "../images/chevron-right-yellow.svg";
 import ProjectCard from "../components/ProjectCard";
 import WipProject from "../components/WipProject";
 import GithubCard from "../components/GithubCard";
 import Polaroids from "../components/Polaroids";
-import { handleScroll } from "../utils/window";
+import { setupMenu, handleScroll } from "../utils/window";
 
 const days = [
   "Sunday",
@@ -97,6 +96,8 @@ const IndexPage = ({ data }) => {
     day > 4 ? "Have a nice weekend!" : `Have an awesome ${days[day]}!`;
 
   useEffect(() => {
+    setupMenu();
+
     typeof window !== "undefined" &&
       window.addEventListener("scroll", handleScroll);
   }, []);
