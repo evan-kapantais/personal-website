@@ -119,3 +119,9 @@
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+@media (pointer: coarse) {
+  .tooltip {
+    display: none;
+  }
+}

@@ -47,6 +47,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem var(--padding-content-inline);
+  font-weight: var(--fontWeight-black);
 }
 
 .sidebar {
@@ -81,6 +82,7 @@
   border-radius: 3px;
   font-weight: var(--fontWeight-black);
   white-space: nowrap;
+  color: var(--primary-color);
   opacity: 0;
   pointer-events: none;
   transition: all 500ms;

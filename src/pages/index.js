@@ -137,45 +137,51 @@ const IndexPage = ({ data }) => {
         </section>
         <section className={styles.bioBottom}>
           <article className={styles.tech}>
-            <h3 className={styles.articleHeading}>Tech I Use</h3>
-            <ul className={styles.techList}>
-              <li className={styles.techItem}>
-                JavaScript <div data-type="front" />
-              </li>
-              <li className={styles.techItem}>
-                React <div data-type="front" />
-              </li>
-              <li className={styles.techItem}>
-                Gatsby <div data-type="front" />
-              </li>
-              <li className={styles.techItem}>
-                Strapi <div data-type="cms" />
-              </li>
-              <li className={styles.techItem}>
-                Contentful <div data-type="cms" />
-              </li>
-              <li className={styles.techItem}>
-                Node.js <div data-type="back" />
-              </li>
-              <li className={styles.techItem}>
-                Express <div data-type="back" />
-              </li>
-              <li className={styles.techItem}>
-                Puppeteer <div data-type="back" />
-              </li>
-              <li className={styles.techItem}>
-                Sass <div data-type="style" />
-              </li>
-              <li className={styles.techItem}>
-                Styled Components <div data-type="style" />
-              </li>
-              <li className={styles.techItem}>
-                React Spring <div data-type="animation" />
-              </li>
-              <li className={styles.techItem}>
-                Mongo DB <div data-type="back" />
-              </li>
-            </ul>
+            <p>Tech I use</p>
+            <p>
+              <a href="https://javascript.info/" className={styles.techLink}>
+                javascript{" "}
+              </a>
+              <a href="https://reactjs.org/" className={styles.techLink}>
+                react{" "}
+              </a>
+              <a href="https://www.gatsbyjs.com/" className={styles.techLink}>
+                gatsby{" "}
+              </a>
+              <a href="https://strapi.io/" className={styles.techLink}>
+                strapi{" "}
+              </a>
+              <a href="https://www.contentful.com/" className={styles.techLink}>
+                contentful{" "}
+              </a>
+              <a href="https://nodejs.org/en/" className={styles.techLink}>
+                node.js{" "}
+              </a>
+              <a href="https://expressjs.com/" className={styles.techLink}>
+                express{" "}
+              </a>
+              <a href="https://pptr.dev/" className={styles.techLink}>
+                puppeteer{" "}
+              </a>
+              <a href="https://sass-lang.com/" className={styles.techLink}>
+                sass{" "}
+              </a>
+              <a
+                href="https://styled-components.com/"
+                className={styles.techLink}
+              >
+                styled components{" "}
+              </a>
+              <a href="https://react-spring.io/" className={styles.techLink}>
+                react spring{" "}
+              </a>
+              <a href="https://www.mongodb.com/" className={styles.techLink}>
+                mongoDB{" "}
+              </a>
+              <a href="https://mongoosejs.com/" className={styles.techLink}>
+                mongoose
+              </a>
+            </p>
           </article>
           <GithubCard />
         </section>

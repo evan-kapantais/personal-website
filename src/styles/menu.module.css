@@ -22,5 +22,6 @@
   width: 4px;
   background: var(--primary-color);
   border-radius: 2px;
-  transition: transform 350ms;
+  will-change: transform;
+  transition: all 350ms;
 }

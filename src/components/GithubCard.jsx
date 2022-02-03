@@ -2,7 +2,31 @@ import React, { useState, useEffect } from "react";
 
 import * as styles from "../styles/github.module.css";
 import folder from "../images/folder.svg";
+import github from "../images/github-white.svg";
 import Stack from "./Stack";
+
+const Repo = ({ repo }) => {
+  return (
+    <div className={styles.repo} key={repo.id}>
+      <header>
+        <a href={repo.html_url}>
+          <img src={folder} alt="folder" width={20} />
+          <p className={styles.repoName}>{repo.name}</p>
+        </a>
+      </header>
+      <main>
+        <p className={styles.repoDesc}>{repo.description}</p>
+      </main>
+      <footer>
+        <Stack stack={repo.language} />
+        <span>
+          {" "}
+          Updated on {new Date(repo.updated_at).toLocaleDateString()}
+        </span>
+      </footer>
+    </div>
+  );
+};
 
 const GithubCard = () => {
   const [loading, setLoading] = useState(true);
@@ -73,36 +97,12 @@ const GithubCard = () => {
       ) : (
         <>
           <header style={{ marginBottom: "2rem" }}>
-            <h3
-              style={{
-                marginBottom: "2rem",
-                display: "inline",
-                marginRight: "1rem",
-              }}
-            >
-              Github Tidbits
-            </h3>
+            <img src={github} alt="github" width={24} />
+            <h3>Github Tidbits</h3>
           </header>
           <section className={styles.repoGrid}>
             {repos.map(repo => (
-              <div className={styles.repo} key={repo.id}>
-                <header>
-                  <a href={repo.html_url}>
-                    <img src={folder} alt="folder" width={20} />
-                    <p className={styles.repoName}>{repo.name}</p>
-                  </a>
-                </header>
-                <main>
-                  <p className={styles.repoDesc}>{repo.description}</p>
-                </main>
-                <footer>
-                  <Stack stack={repo.language} />
-                  <span>
-                    {" "}
-                    Updated on {new Date(repo.updated_at).toLocaleDateString()}
-                  </span>
-                </footer>
-              </div>
+              <Repo repo={repo} />
             ))}
           </section>
         </>
