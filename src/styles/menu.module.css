@@ -1,9 +1,16 @@
 .menu {
+  height: 100%;
   position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 8%;
   top: 50%;
+  padding-right: 2rem;
   transform: translateY(-50%);
-  right: 2rem;
+  right: 0;
   color: var(--primary-color);
+  white-space: nowrap;
 }
 
 .menu nav li {
@@ -25,21 +32,4 @@
   border-radius: 2px;
   will-change: transform;
   transition: all 350ms;
-}
-
-@media (max-width: 1700px) {
-  .menu {
-    display: none;
-    /* position: absolute;
-    top: 0;
-    right: var(--padding-content-inline);
-    height: 100vh;
-    transform: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 4rem;
-    background: var(--color-card-background); */
-  }
 }

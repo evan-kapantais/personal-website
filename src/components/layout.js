@@ -19,10 +19,12 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className={styles.layout}>
-      <Header set={set} isMenuOpen={isMenuOpen} />
-      <main>{children}</main>
-      <Footer />
       <Social />
+      <main>
+        <Header set={set} isMenuOpen={isMenuOpen} />
+        {children}
+        <Footer />
+      </main>
       <Menu isMenuOpen={isMenuOpen} />
     </div>
   );

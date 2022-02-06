@@ -1,13 +1,11 @@
 import React from "react";
-import { a, useSpring } from "react-spring";
 import { Link } from "gatsby";
-import arrow from "../images/chevron-left.svg";
 
 import * as styles from "../styles/menu.module.css";
 
 const Menu = ({ isMenuOpen }) => {
   return (
-    <a.div className={`${styles.menu} menu`}>
+    <aside className={`${styles.menu} menu`}>
       <div className={`${styles.scrollbar} nav-scrollbar`} />
       <nav>
         <ul>
@@ -38,7 +36,7 @@ const Menu = ({ isMenuOpen }) => {
           </li>
         </ul>
       </nav>
-    </a.div>
+    </aside>
   );
 };
 

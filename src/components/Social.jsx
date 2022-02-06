@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as styles from "../styles/layout.module.css";
+import * as styles from "../styles/social.module.css";
 
 import instagram from "../images/instagram.svg";
 import github from "../images/github.svg";
@@ -8,7 +8,7 @@ import codepen from "../images/codepen.svg";
 
 const Social = () => {
   return (
-    <aside className={styles.sidebar}>
+    <aside className={styles.social}>
       <nav>
         <ul>
           <li className={styles.socialItem}>
