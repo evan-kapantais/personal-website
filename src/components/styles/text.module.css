@@ -1,8 +1,9 @@
 .text {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   left: 1rem;
-  padding: 2rem 6rem 2rem 2rem;
+  padding: 2.5rem 4rem;
   background: var(--color-card-background);
   border-radius: 10px;
   box-shadow: 0 0 99px rgba(0, 0, 0, 0.1);
@@ -11,7 +12,6 @@
 .odd {
   left: unset;
   right: 1rem;
-  padding: 2rem 2rem 2rem 6rem;
 }
 
 .header span {

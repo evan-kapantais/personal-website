@@ -20,8 +20,26 @@
   top: 0;
   right: -16px;
   width: 4px;
+  height: 23px;
   background: var(--primary-color);
   border-radius: 2px;
   will-change: transform;
   transition: all 350ms;
+}
+
+@media (max-width: 1700px) {
+  .menu {
+    display: none;
+    /* position: absolute;
+    top: 0;
+    right: var(--padding-content-inline);
+    height: 100vh;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem;
+    background: var(--color-card-background); */
+  }
 }

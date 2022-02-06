@@ -137,7 +137,7 @@ const IndexPage = ({ data }) => {
         </section>
         <section className={styles.bioBottom}>
           <article className={styles.tech}>
-            <p>Tech I use</p>
+            <p>My favourite tech</p>
             <p>
               <a href="https://javascript.info/" className={styles.techLink}>
                 javascript{" "}

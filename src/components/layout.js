@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
+import React, { useState } from "react";
 import Menu from "./Menu";
 import Footer from "./Footer";
 
 import * as styles from "../styles/layout.module.css";
-import { StaticImage } from "gatsby-plugin-image";
 import Social from "./Social";
+import Burger from "./Burger";
+
+const Header = ({ set, isMenuOpen }) => {
+  return (
+    <header className={styles.header}>
+      <Burger set={set} isMenuOpen={isMenuOpen} />
+    </header>
+  );
+};
 
 const Layout = ({ location, title, children }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, set] = useState(false);
 
   return (
     <div className={styles.layout}>
-      <header
-        className={`${styles.header} ${title === "Home" && styles.headerHome}`}
-      >
-        {title !== "Home" && (
-          <h1>
-            <Link to="/">Evan Kapantais</Link>
-          </h1>
-        )}
-        <button
-          type="button"
-          className={styles.burger}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <div></div>
-          <div></div>
-        </button>
-      </header>
+      <Header set={set} isMenuOpen={isMenuOpen} />
       <main>{children}</main>
       <Footer />
       <Social />

@@ -1,17 +1,26 @@
 import React from "react";
-import SocialLink from "./SocialLink.jsx";
+import heart from "../images/heart.svg";
 
 import * as styles from "../styles/layout.module.css";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <ul>
-        <SocialLink link="https://github.com/evan-kapantais" />
-        <SocialLink link="https://instagram.com/evan.json" />
-        <SocialLink link="https://codepen.io/Camp_Evan" />
-      </ul>
       <div>© {new Date().getFullYear()}, Evan Kapantais</div>
+      <div>
+        Made with{" "}
+        <img
+          src={heart}
+          alt="love"
+          width={18}
+          style={{
+            display: "inline",
+            verticalAlign: "middle",
+            margin: "0 0.2rem",
+          }}
+        />{" "}
+        and Gatsby
+      </div>
     </footer>
   );
 };

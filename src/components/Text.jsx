@@ -8,25 +8,10 @@ import link from "../images/link.svg";
 import Stack from "./Stack";
 
 const Text = ({ project, setShowRepo, details, set }) => {
-  const spring = useSpring({
-    to: {
-      scale: details ? 1 : 0,
-      y: "-50%",
-    },
-    config: {
-      mass: 1,
-      tension: 120,
-      friction: 15,
-    },
-  });
-
   const isOdd = project.id % 2 !== 0;
 
   return (
-    <a.article
-      style={spring}
-      className={`${styles.text} ${isOdd ? styles.odd : ""}`}
-    >
+    <article className={`${styles.text} ${isOdd ? styles.odd : ""}`}>
       <header className={styles.header}>
         <span>{project.type} Project</span>
         <h3 className={styles.title}>{project.title}</h3>
@@ -53,14 +38,7 @@ const Text = ({ project, setShowRepo, details, set }) => {
           </a>
         </div>
       </footer>
-      <button
-        type="button"
-        className={styles.details}
-        onClick={() => set(false)}
-      >
-        <img src={arrow} alt="view details" width={32} />
-      </button>
-    </a.article>
+    </article>
   );
 };
 
