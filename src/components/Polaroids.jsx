@@ -5,6 +5,7 @@ const Polaroids = () => {
   return (
     <section
       style={{
+        float: "left",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

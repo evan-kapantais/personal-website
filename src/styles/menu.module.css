@@ -13,6 +13,10 @@
   white-space: nowrap;
 }
 
+.menu nav {
+  position: relative;
+}
+
 .menu nav li {
   text-align: right;
   font-size: var(--fontSize-2);
@@ -32,4 +36,10 @@
   border-radius: 2px;
   will-change: transform;
   transition: all 350ms;
+}
+
+@media (max-width: 1400px) {
+  .menu {
+    display: none;
+  }
 }

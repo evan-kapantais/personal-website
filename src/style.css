@@ -55,12 +55,11 @@
   --fontSize-2: 1.2rem;
   --fontSize-3: 1.44rem;
   --fontSize-4: 1.728rem;
-  --fontSize-5: 2.074rem;
-  --fontSize-6: 2.488rem;
-  --fontSize-7: 2.986rem;
-  /* --fontSize-8: 5.2rem; */
-  --fontSize-8: calc(4rem + 1vw);
-  --fontSize-9: 7.5rem;
+  --fontSize-5: calc(1.5rem + 1vw);
+  --fontSize-6: calc(1.5rem + 1.2vw);
+  --fontSize-7: calc(1.5rem + 1.5vw);
+  --fontSize-8: calc(2rem + 2.5vw);
+  --fontSize-9: calc(2rem + 4vw);
   --color-text: #fff;
   --color-text-light: #d1d1d1;
   --color-heading: #1a202c;
@@ -246,6 +245,11 @@ a {
   color: inherit;
   text-decoration: none;
   color: var(--primary-color);
+}
+
+a > img {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Move this to module */

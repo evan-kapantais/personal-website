@@ -1,17 +1,15 @@
-import React, { useRef } from "react";
-import { a, useSpring } from "react-spring";
+import React from "react";
 
 import * as styles from "./styles/text.module.css";
-import arrow from "../images/chevron-right-white.svg";
 import github from "../images/github.svg";
 import link from "../images/link.svg";
 import Stack from "./Stack";
 
-const Text = ({ project, setShowRepo, details, set }) => {
-  const isOdd = project.id % 2 !== 0;
+const Text = ({ project }) => {
+  const isEven = project.id % 2 !== 0;
 
   return (
-    <article className={`${styles.text} ${isOdd ? styles.odd : ""}`}>
+    <article className={`${styles.text} ${isEven ? styles.even : ""}`}>
       <header className={styles.header}>
         <span>{project.type} Project</span>
         <h3 className={styles.title}>{project.title}</h3>
@@ -23,7 +21,7 @@ const Text = ({ project, setShowRepo, details, set }) => {
       </main>
       <footer>
         <Stack stack={project.stack} />
-        <div className={styles.links}>
+        <div>
           <a
             href={project.siteUrl}
             className={styles.link}

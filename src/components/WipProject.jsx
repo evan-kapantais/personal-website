@@ -30,26 +30,33 @@ const WipProject = ({ project }) => {
       <article>
         <div>
           <header>
-            <div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <h3>{project.title}</h3>
-              <span
-                style={{
-                  fontSize: "var(--fontSize-0)",
-                  color: "var(--color-text-light)",
-                }}
-              >
-                {project.type} Project
-              </span>
-            </div>
-            <div className={styles.wipLinks}>
-              {project.siteUrl && (
-                <a href={project.siteUrl} style={{ marginRight: "1rem" }}>
-                  <img src={link} alt="website" width={20} />
+              <div>
+                {project.siteUrl && (
+                  <a href={project.siteUrl} style={{ marginRight: "1rem" }}>
+                    <img src={link} alt="website" width={20} />
+                  </a>
+                )}
+                <a href={project.repoUrl}>
+                  <img src={github} alt="github" width={20} />
                 </a>
-              )}
-              <a href={project.repoUrl}>
-                <img src={github} alt="github" width={20} />
-              </a>
+              </div>
+            </div>
+            <div
+              style={{
+                fontSize: "var(--fontSize-0)",
+                color: "var(--color-text-light)",
+                textTransform: "capitalize",
+              }}
+            >
+              {project.type} Project
             </div>
           </header>
           <main>

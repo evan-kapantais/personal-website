@@ -1,4 +1,4 @@
-.imageWrapper {
+.image {
   position: absolute;
   right: 0;
   top: 50%;
@@ -6,14 +6,24 @@
   border-radius: 10px;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.odd {
+.even {
   right: unset;
   left: 0;
+}
+
+@media (max-width: 1600px) {
+  .image,
+  .even {
+    top: 0;
+    right: 0;
+    left: unset;
+    transform: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .image {
+    position: relative;
+    width: auto;
+  }
 }

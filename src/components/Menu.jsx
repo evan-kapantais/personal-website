@@ -6,8 +6,8 @@ import * as styles from "../styles/menu.module.css";
 const Menu = ({ isMenuOpen }) => {
   return (
     <aside className={`${styles.menu} menu`}>
-      <div className={`${styles.scrollbar} nav-scrollbar`} />
       <nav>
+        <div className={`${styles.scrollbar} nav-scrollbar`} />
         <ul>
           <li>
             <Link className="nav-link" to="#home">

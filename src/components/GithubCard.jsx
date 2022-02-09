@@ -7,7 +7,7 @@ import Stack from "./Stack";
 
 const Repo = ({ repo }) => {
   return (
-    <div className={styles.repo} key={repo.id}>
+    <div className={styles.repo}>
       <header>
         <a href={repo.html_url}>
           <img src={folder} alt="folder" width={20} />
@@ -102,7 +102,7 @@ const GithubCard = () => {
           </header>
           <section className={styles.repoGrid}>
             {repos.map(repo => (
-              <Repo repo={repo} />
+              <Repo key={repo.id} repo={repo} />
             ))}
           </section>
         </>

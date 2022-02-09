@@ -1,6 +1,7 @@
 .text {
   position: absolute;
   top: 50%;
+  width: fit-content;
   transform: translateY(-50%);
   left: 1rem;
   padding: 2.5rem 4rem;
@@ -9,7 +10,7 @@
   box-shadow: 0 0 99px rgba(0, 0, 0, 0.1);
 }
 
-.odd {
+.even {
   left: unset;
   right: 1rem;
 }
@@ -23,6 +24,7 @@
 .title {
   font-size: var(--fontSize-6);
   color: var(--primary-color);
+  line-height: var(--lineHeight-tight);
   margin-bottom: 2rem;
 }
 
@@ -33,42 +35,15 @@
   font-size: var(--fontSize-1);
 }
 
-.details {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0.5rem;
-  color: #fff;
-}
-
-.details > img {
-  transition: all 300ms;
-}
-
-.details:hover > img {
-  transform: translateX(3px);
-}
-
-.odd .details {
-  right: unset;
-  left: 0.5rem;
-}
-
-.odd .details > img {
-  transform: rotate(180deg);
-}
-
-.odd .details:hover > img {
-  transform: rotate(180deg) translateX(3px);
-}
-
 .text footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap-reverse;
 }
 
-.odd footer {
+.even footer {
   flex-direction: row-reverse;
 }
 
@@ -123,5 +98,40 @@
 @media (pointer: coarse) {
   .tooltip {
     display: none;
+  }
+}
+
+@media (max-width: 1600px) {
+  .text {
+    top: unset;
+    bottom: 0;
+    left: 0;
+    right: unset;
+    transform: none;
+  }
+
+  .even footer {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 960px) {
+  .text {
+    left: 50%;
+    transform: translate(-50%, -20%);
+    padding: 2rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .text {
+    position: relative;
+    left: unset;
+    transform: none;
+    width: 100%;
+    background: none;
+    padding: 2rem 0;
+    box-shadow: none;
   }
 }

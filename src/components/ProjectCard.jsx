@@ -1,7 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useSpring, animated, config } from "react-spring";
+import React, { useState } from "react";
 
-import Video from "./Video";
 import Text from "./Text";
 import Image from "./Image";
 

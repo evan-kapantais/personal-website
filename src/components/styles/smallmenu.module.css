@@ -1,0 +1,40 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  background: var(--color-card-background);
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menuItem {
+  font-size: var(--fontSize-5);
+  font-weight: var(--fontWeight-black);
+  margin: 1.5rem 0;
+}
+
+.social {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.socialItem {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+@media (max-width: 800px) {
+  .menu {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    width: 70%;
+  }
+}

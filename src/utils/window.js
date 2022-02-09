@@ -7,13 +7,13 @@ export const setupMenu = () => {
 };
 
 export const handleScroll = () => {
-  const menu = document.querySelector(".menu");
+  const nav = document.querySelector(".menu nav");
   const sections = document.querySelectorAll(".section");
   const navLinks = document.querySelectorAll(".nav-link");
   const scrollbar = document.querySelector(".nav-scrollbar");
 
-  const menuRect = menu.getBoundingClientRect();
-  const menuOffsetTop = menuRect.top;
+  const navRect = nav.getBoundingClientRect();
+  const navOffsetTop = navRect.top;
 
   sections.forEach(section => {
     const offsetTop = section.getBoundingClientRect().top;
@@ -29,7 +29,7 @@ export const handleScroll = () => {
           const linkOffsetTop = link.getBoundingClientRect().top;
 
           link.classList.add("active");
-          const translateY = `${linkOffsetTop - menuOffsetTop}px`;
+          const translateY = `${linkOffsetTop - navOffsetTop}px`;
 
           scrollbar.style.transform = `translateY(${translateY})`;
         }
