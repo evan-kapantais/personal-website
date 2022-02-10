@@ -133,5 +133,6 @@
     background: none;
     padding: 2rem 0;
     box-shadow: none;
+    border-radius: 0;
   }
 }

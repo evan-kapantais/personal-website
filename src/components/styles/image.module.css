@@ -4,6 +4,7 @@
   top: 50%;
   transform: translateY(-50%);
   border-radius: 10px;
+  width: 70%;
 }
 
 .even {
@@ -23,7 +24,7 @@
 
 @media (max-width: 800px) {
   .image {
-    position: relative;
+    position: relative !important;
     width: auto;
   }
 }

@@ -231,7 +231,7 @@ export const query = graphql`
       nodes {
         contentful_id
         image {
-          gatsbyImageData(width: 800)
+          gatsbyImageData(width: 1200)
         }
         title
         description
