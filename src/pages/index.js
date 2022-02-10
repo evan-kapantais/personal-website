@@ -81,7 +81,7 @@ const IndexPage = ({ data }) => {
   }, []);
 
   return (
-    <Layout title="Home">
+    <Layout>
       <Seo title="Home" />
       <section
         className={`${styles.indexSection} ${styles.banner} section`}

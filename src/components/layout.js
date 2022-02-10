@@ -18,7 +18,7 @@ const Header = ({ set, isMenuOpen }) => {
   );
 };
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ children }) => {
   const [isMenuOpen, set] = useState(false);
 
   return (
