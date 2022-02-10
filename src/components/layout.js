@@ -30,17 +30,17 @@ const Layout = ({ location, title, children }) => {
         <footer className={styles.footer}>
           <div>© {new Date().getFullYear()}, Evan Kapantais</div>
           <ul>
-            <li className={styles.socialItem}>
+            <li>
               <a href="https://github.com/evan-kapantais">
                 <img src={github} alt="github" width={20} />
               </a>
             </li>
-            <li className={styles.socialItem}>
+            <li>
               <a href="https://instagram.com/evan.json">
                 <img src={instagram} alt="instagram" width={20} />
               </a>
             </li>
-            <li className={styles.socialItem}>
+            <li>
               <a href="https://codepen.io/Camp_Evan/">
                 <img src={codepen} alt="codepen" width={20} />
               </a>
