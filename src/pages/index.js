@@ -40,18 +40,18 @@ const IndexPage = ({ data }) => {
     entries.forEach(entry => {
       const text = entry.target.dataset.text;
 
+      let interval = null;
+      let index = 0;
+
       if (entry.isIntersecting) {
-        let interval = null;
-        let index = 0;
-
         interval = setInterval(() => {
-          if (index >= text.length - 1) {
-            clearInterval(interval);
+          if (index < text.length) {
+            entry.target.innerText += text.charAt(index);
+            index++;
+          } else {
             observer.unobserve(entry.target);
+            clearInterval(interval);
           }
-
-          entry.target.innerHTML += text.charAt(index);
-          index++;
         }, 80);
       }
     });
@@ -72,7 +72,7 @@ const IndexPage = ({ data }) => {
     const options = {
       root: null,
       threshold: 1.0,
-      rootMargin: "0px",
+      rootMargin: "-0px",
     };
 
     const observer = new IntersectionObserver(animateHeading, options);

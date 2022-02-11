@@ -5,7 +5,7 @@
 }
 
 .project:not(:last-of-type) {
-  margin-bottom: 6rem;
+  margin-bottom: 10rem;
 }
 
 @media (max-width: 1600px) {
