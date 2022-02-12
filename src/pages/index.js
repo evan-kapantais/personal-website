@@ -8,6 +8,7 @@ import * as styles from "../styles/index.module.css";
 import ProjectCard from "../components/ProjectCard";
 import WipProject from "../components/WipProject";
 import GithubCard from "../components/GithubCard";
+import Slider from "../components/Slider";
 
 import { setupMenu, handleScroll } from "../utils/window";
 
@@ -40,10 +41,10 @@ const IndexPage = ({ data }) => {
     entries.forEach(entry => {
       const text = entry.target.dataset.text;
 
-      let interval = null;
-      let index = 0;
-
       if (entry.isIntersecting) {
+        let interval = null;
+        let index = 0;
+
         interval = setInterval(() => {
           if (index < text.length) {
             entry.target.innerText += text.charAt(index);
@@ -114,53 +115,11 @@ const IndexPage = ({ data }) => {
         </section>
         <section>
           <article className={styles.tech}>
-            <p>My favourite tech</p>
-            <p>
-              <a href="https://javascript.info/" className={styles.techLink}>
-                javascript{" "}
-              </a>
-              <a href="https://reactjs.org/" className={styles.techLink}>
-                react{" "}
-              </a>
-              <a href="https://www.gatsbyjs.com/" className={styles.techLink}>
-                gatsby{" "}
-              </a>
-              <a href="https://strapi.io/" className={styles.techLink}>
-                strapi{" "}
-              </a>
-              <a href="https://www.contentful.com/" className={styles.techLink}>
-                contentful{" "}
-              </a>
-              <a href="https://nodejs.org/en/" className={styles.techLink}>
-                node.js{" "}
-              </a>
-              <a href="https://expressjs.com/" className={styles.techLink}>
-                express{" "}
-              </a>
-              <a href="https://pptr.dev/" className={styles.techLink}>
-                puppeteer{" "}
-              </a>
-              <a href="https://sass-lang.com/" className={styles.techLink}>
-                sass{" "}
-              </a>
-              <a
-                href="https://styled-components.com/"
-                className={styles.techLink}
-              >
-                styled components{" "}
-              </a>
-              <a href="https://react-spring.io/" className={styles.techLink}>
-                react spring{" "}
-              </a>
-              <a href="https://www.mongodb.com/" className={styles.techLink}>
-                mongoDB{" "}
-              </a>
-              <a href="https://mongoosejs.com/" className={styles.techLink}>
-                mongoose
-              </a>
-            </p>
+            <h2 className={`${styles.articleHeading} ${styles.techHeading}`}>
+              My favourite tech
+            </h2>
+            <Slider />
           </article>
-          <GithubCard />
         </section>
       </section>
       <section className={`${styles.indexSection} section`} id="projects">

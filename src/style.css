@@ -68,16 +68,10 @@
   --background-color: #1c1c1c;
   --primary-color: #f8f2c1;
   --primary-color-faded: #f8f2c1be;
-  --color-accent: #d1dce5;
+  --color-accent: #ffcd88;
   --color-card-background: #2b2b2b;
-  --color-stack-front: rgb(167, 255, 245);
-  --color-stack-back: rgb(255, 232, 149);
-  --color-stack-style: rgb(247, 171, 255);
-  --color-stack-animation: rgb(173, 255, 167);
-  --color-stack-cms: rgb(195, 167, 255);
   /* Animations */
   --animation-curve: cubic-bezier(0.37, 0.97, 0.51, 0.98);
-  --menu-transition-duration: 700ms;
 }
 
 /* HTML elements */
@@ -125,6 +119,10 @@ hr {
   background: var(--color-accent);
   height: 1px;
   border: 0;
+}
+
+::selection {
+  color: var(--color-accent);
 }
 
 /* Heading */

@@ -20,6 +20,7 @@
 .menu nav li {
   text-align: right;
   font-size: var(--fontSize-2);
+  user-select: none;
 }
 
 .menu nav li:not(:last-child) {
