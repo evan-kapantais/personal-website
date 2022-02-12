@@ -67,19 +67,19 @@ const IndexPage = ({ data }) => {
   }, []);
 
   // Setup intersection observer
-  useEffect(() => {
-    const headings = document.querySelectorAll(`.headingTarget`);
+  // useEffect(() => {
+  //   const headings = document.querySelectorAll(`.headingTarget`);
 
-    const options = {
-      root: null,
-      threshold: 1.0,
-      rootMargin: "-0px",
-    };
+  //   const options = {
+  //     root: null,
+  //     threshold: 1.0,
+  //     rootMargin: "-0px",
+  //   };
 
-    const observer = new IntersectionObserver(animateHeading, options);
+  //   const observer = new IntersectionObserver(animateHeading, options);
 
-    headings.forEach(heading => observer.observe(heading));
-  }, []);
+  //   headings.forEach(heading => observer.observe(heading));
+  // }, []);
 
   return (
     <Layout>
@@ -96,7 +96,9 @@ const IndexPage = ({ data }) => {
       </section>
       <section className={`${styles.indexSection} section`} id="about">
         <h2 className={styles.sectionHeading}>
-          <span className="headingTarget" data-text="whoami"></span>
+          <span className="headingTarget" data-text="whoami">
+            whoami
+          </span>
           <span className={styles.cursor}>_</span>
         </h2>
         <section>
@@ -124,7 +126,9 @@ const IndexPage = ({ data }) => {
       </section>
       <section className={`${styles.indexSection} section`} id="projects">
         <h2 className={styles.sectionHeading}>
-          <span className="headingTarget" data-text="projects"></span>
+          <span className="headingTarget" data-text="projects">
+            projects
+          </span>
           <span className={styles.cursor}>_</span>
         </h2>
         <ul>
@@ -135,7 +139,9 @@ const IndexPage = ({ data }) => {
       </section>
       <section className={`${styles.indexSection} section`} id="wip">
         <h2 className={styles.sectionHeading}>
-          <span className="headingTarget" data-text="workingOn"></span>
+          <span className="headingTarget" data-text="inProgress">
+            inProgress
+          </span>
           <span className={styles.cursor}>_</span>
         </h2>
         <ul className={styles.wipList}>
@@ -146,7 +152,9 @@ const IndexPage = ({ data }) => {
       </section>
       <section className={`${styles.indexSection} section`} id="contact">
         <h2 className={styles.sectionHeading}>
-          <span className="headingTarget" data-text="contact"></span>
+          <span className="headingTarget" data-text="contact">
+            contact
+          </span>
           <span className={styles.cursor}>_</span>
         </h2>
         <p
