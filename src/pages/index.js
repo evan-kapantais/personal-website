@@ -7,7 +7,6 @@ import Layout from "../components/layout";
 import * as styles from "../styles/index.module.css";
 import ProjectCard from "../components/ProjectCard";
 import WipProject from "../components/WipProject";
-import GithubCard from "../components/GithubCard";
 import Slider from "../components/Slider";
 
 import { setupMenu, handleScroll } from "../utils/window";
@@ -37,27 +36,6 @@ const IndexPage = ({ data }) => {
   const farewell =
     day > 4 ? "Have a nice weekend!" : `Have an awesome ${days[day]}!`;
 
-  const animateHeading = (entries, observer) => {
-    entries.forEach(entry => {
-      const text = entry.target.dataset.text;
-
-      if (entry.isIntersecting) {
-        let interval = null;
-        let index = 0;
-
-        interval = setInterval(() => {
-          if (index < text.length) {
-            entry.target.innerText += text.charAt(index);
-            index++;
-          } else {
-            observer.unobserve(entry.target);
-            clearInterval(interval);
-          }
-        }, 80);
-      }
-    });
-  };
-
   // Setup menu scrollbar
   useEffect(() => {
     setupMenu();
@@ -65,21 +43,6 @@ const IndexPage = ({ data }) => {
     typeof window !== "undefined" &&
       window.addEventListener("scroll", handleScroll);
   }, []);
-
-  // Setup intersection observer
-  // useEffect(() => {
-  //   const headings = document.querySelectorAll(`.headingTarget`);
-
-  //   const options = {
-  //     root: null,
-  //     threshold: 1.0,
-  //     rootMargin: "-0px",
-  //   };
-
-  //   const observer = new IntersectionObserver(animateHeading, options);
-
-  //   headings.forEach(heading => observer.observe(heading));
-  // }, []);
 
   return (
     <Layout>
