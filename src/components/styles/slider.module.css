@@ -55,6 +55,6 @@
 @media (max-width: 800px) {
   .slider::before,
   .slider::after {
-    width: 100px;
+    display: none;
   }
 }
