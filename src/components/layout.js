@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Menu from "./Menu";
 import SmallMenu from "./SmallMenu";
 
@@ -20,6 +22,10 @@ const Header = ({ set, isMenuOpen }) => {
 
 const Layout = ({ children }) => {
   const [isMenuOpen, set] = useState(false);
+
+  useEffect(() => {
+    AOS.init({ duration: 700, offset: -100 });
+  }, []);
 
   return (
     <div className={styles.layout}>

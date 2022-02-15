@@ -122,7 +122,8 @@ hr {
 }
 
 ::selection {
-  color: var(--color-accent);
+  background: var(--primary-color);
+  color: var(--background-color);
 }
 
 /* Heading */

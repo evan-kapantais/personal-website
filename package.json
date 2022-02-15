@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "gatsby": "^4.2.0",
     "gatsby-plugin-feed": "^4.2.0",
     "gatsby-plugin-gatsby-cloud": "^4.2.0",

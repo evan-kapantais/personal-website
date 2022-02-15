@@ -47,16 +47,22 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Home" />
+      {/* Banner */}
       <section
         className={`${styles.indexSection} ${styles.banner} section`}
         id="home"
       >
         <div className={styles.bannerContainer}>
-          <p>{greeting}, I'm</p>
-          <h1>Evan Kapantais.</h1>
-          <h2>I build stuff for the modern web.</h2>
+          <p data-aos="fade-down">{greeting}, I'm</p>
+          <h1 data-aos="fade-left" data-aos-delay="300">
+            Evan Kapantais.
+          </h1>
+          <h2 data-aos="fade-right" data-aos-delay="700">
+            I build stuff for the modern web.
+          </h2>
         </div>
       </section>
+      {/* About */}
       <section className={`${styles.indexSection} section`} id="about">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="whoami">
@@ -66,11 +72,11 @@ const IndexPage = ({ data }) => {
         </h2>
         <section>
           <article className={styles.brief}>
-            <p>
+            <p data-aos="fade-up" data-aos-duration="1000">
               I am a web developer from Greece based somewhere between Athens
               and Barcelona.
             </p>
-            <p>
+            <p data-aos="fade-up" data-aos-duration="1000">
               I specialise in creating interactive experiences and minimal UI
               with React. I primarily work on client-side-rendered applications
               with a heavy emphasis on responsive design, performance and
@@ -87,6 +93,7 @@ const IndexPage = ({ data }) => {
           </article>
         </section>
       </section>
+      {/* Projects */}
       <section className={`${styles.indexSection} section`} id="projects">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="projects">
@@ -100,6 +107,7 @@ const IndexPage = ({ data }) => {
           ))}
         </ul>
       </section>
+      {/* Wip */}
       <section className={`${styles.indexSection} section`} id="wip">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="inProgress">
@@ -113,6 +121,7 @@ const IndexPage = ({ data }) => {
           ))}
         </ul>
       </section>
+      {/* Contact */}
       <section className={`${styles.indexSection} section`} id="contact">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="contact">
@@ -127,6 +136,7 @@ const IndexPage = ({ data }) => {
             lineHeight: "var(--lineHeight-tight)",
             marginBottom: "4rem",
           }}
+          data-aos="fade-left"
         >
           If you have an exciting project in mind or just want to say hi, feel
           free to send me an email at{" "}
@@ -145,6 +155,7 @@ const IndexPage = ({ data }) => {
             fontWeight: "var(--fontWeight-black)",
             lineHeight: "var(--lineHeight-tight)",
           }}
+          data-aos="fade-right"
         >
           {farewell}
         </p>
