@@ -6,15 +6,7 @@ import Stack from "./Stack";
 import * as styles from "../styles/project.module.css";
 
 const ProjectCard = ({ project }) => {
-  const [details, set] = useState(true);
-
   const isEven = project.id % 2 !== 0;
-
-  const props = {
-    project,
-    details,
-    set,
-  };
 
   return (
     <li className={`${styles.project} ${isEven && styles.even}`}>
