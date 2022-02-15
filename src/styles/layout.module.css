@@ -3,6 +3,7 @@
   background: var(--background-color);
   margin: 0 auto;
   width: 84%;
+  min-height: 100vh;
   max-width: var(--maxWidth-xxl);
   overflow-x: hidden;
 }

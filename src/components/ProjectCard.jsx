@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import github from "../images/github.svg";
 import link from "../images/link.svg";
@@ -17,16 +17,18 @@ const ProjectCard = ({ project }) => {
         className={`${styles.image} ${isEven ? styles.even : ""}`}
       />
       <article className={`${styles.text} ${isEven ? styles.even : ""}`}>
-        <header className={styles.header}>
+        <header className={styles.header} data-aos="fade-right">
           <span>{project.type} Project</span>
           <h3 className={styles.title}>{project.title}</h3>
         </header>
         <main>
           <section>
-            <p className={styles.description}>{project.description}</p>
+            <p data-aos="fade-up" className={styles.description}>
+              {project.description}
+            </p>
           </section>
         </main>
-        <footer>
+        <footer data-aos="fade-up" data-aos-delay="100">
           <Stack stack={project.stack} />
           <div>
             <a

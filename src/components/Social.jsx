@@ -11,19 +11,31 @@ const Social = () => {
     <aside className={styles.social}>
       <nav>
         <ul>
-          <li className={styles.socialItem}>
+          <li
+            className={styles.socialItem}
+            data-aos="fade-up"
+            data-aos-delay="1000"
+          >
             <a href="https://github.com/evan-kapantais">
               <img src={github} alt="github" width={24} />
             </a>
             <span className={styles.tooltip}>/evan-kapantais</span>
           </li>
-          <li className={styles.socialItem}>
+          <li
+            className={styles.socialItem}
+            data-aos="fade-up"
+            data-aos-delay="1100"
+          >
             <a href="https://instagram.com/evan.json">
               <img src={instagram} alt="instagram" width={24} />
             </a>
             <span className={styles.tooltip}>/evan.json</span>
           </li>
-          <li className={styles.socialItem}>
+          <li
+            className={styles.socialItem}
+            data-aos="fade-up"
+            data-aos-delay="1200"
+          >
             <a href="https://codepen.io/Camp_Evan/">
               <img src={codepen} alt="codepen" width={24} />
             </a>
