@@ -7,7 +7,6 @@ import Layout from "../components/layout";
 import * as styles from "../styles/index.module.css";
 import ProjectCard from "../components/ProjectCard";
 import WipProject from "../components/WipProject";
-import GithubCard from "../components/GithubCard";
 import Slider from "../components/Slider";
 
 import { setupMenu, handleScroll } from "../utils/window";
@@ -66,24 +65,10 @@ const IndexPage = ({ data }) => {
       window.addEventListener("scroll", handleScroll);
   }, []);
 
-  // Setup intersection observer
-  // useEffect(() => {
-  //   const headings = document.querySelectorAll(`.headingTarget`);
-
-  //   const options = {
-  //     root: null,
-  //     threshold: 1.0,
-  //     rootMargin: "-0px",
-  //   };
-
-  //   const observer = new IntersectionObserver(animateHeading, options);
-
-  //   headings.forEach(heading => observer.observe(heading));
-  // }, []);
-
   return (
     <Layout>
       <Seo title="Home" />
+      {/* Banner */}
       <section
         className={`${styles.indexSection} ${styles.banner} section`}
         id="home"
@@ -94,6 +79,7 @@ const IndexPage = ({ data }) => {
           <h2>I build stuff for the modern web.</h2>
         </div>
       </section>
+      {/* About */}
       <section className={`${styles.indexSection} section`} id="about">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="whoami">
@@ -124,6 +110,7 @@ const IndexPage = ({ data }) => {
           </article>
         </section>
       </section>
+      {/* Projects */}
       <section className={`${styles.indexSection} section`} id="projects">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="projects">
@@ -137,6 +124,7 @@ const IndexPage = ({ data }) => {
           ))}
         </ul>
       </section>
+      {/* Wip */}
       <section className={`${styles.indexSection} section`} id="wip">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="inProgress">
@@ -150,6 +138,7 @@ const IndexPage = ({ data }) => {
           ))}
         </ul>
       </section>
+      {/* Contact */}
       <section className={`${styles.indexSection} section`} id="contact">
         <h2 className={styles.sectionHeading}>
           <span className="headingTarget" data-text="contact">
