@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import Menu from "./Menu";
 import SmallMenu from "./SmallMenu";
 
-import * as styles from "../styles/layout.module.css";
+import * as styles from "./styles/layout.module.css";
 import Social from "./Social";
 import Burger from "./Burger";
 
@@ -20,11 +20,36 @@ const Header = ({ set, isMenuOpen }) => {
   );
 };
 
+const Footer = () => {
+  return (
+    <footer className={styles.footer}>
+      <div>© {new Date().getFullYear()}, Evan Kapantais</div>
+      <ul>
+        <li>
+          <a href="https://github.com/evan-kapantais">
+            <img src={github} alt="github" width={20} />
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/evan.json">
+            <img src={instagram} alt="instagram" width={20} />
+          </a>
+        </li>
+        <li>
+          <a href="https://codepen.io/Camp_Evan/">
+            <img src={codepen} alt="codepen" width={20} />
+          </a>
+        </li>
+      </ul>
+    </footer>
+  );
+};
+
 const Layout = ({ children }) => {
   const [isMenuOpen, set] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 700, offset: -100 });
+    AOS.init({ duration: 700, offset: -100, once: true });
   }, []);
 
   return (
@@ -33,26 +58,7 @@ const Layout = ({ children }) => {
       <main>
         <Header set={set} isMenuOpen={isMenuOpen} />
         {children}
-        <footer className={styles.footer}>
-          <div>© {new Date().getFullYear()}, Evan Kapantais</div>
-          <ul>
-            <li>
-              <a href="https://github.com/evan-kapantais">
-                <img src={github} alt="github" width={20} />
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com/evan.json">
-                <img src={instagram} alt="instagram" width={20} />
-              </a>
-            </li>
-            <li>
-              <a href="https://codepen.io/Camp_Evan/">
-                <img src={codepen} alt="codepen" width={20} />
-              </a>
-            </li>
-          </ul>
-        </footer>
+        <Footer />
       </main>
       <Menu />
       <SmallMenu isOpen={isMenuOpen} set={set} />

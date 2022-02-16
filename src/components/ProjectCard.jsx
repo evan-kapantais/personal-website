@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import github from "../images/github.svg";
 import link from "../images/link.svg";
 import Stack from "./Stack";
-import * as styles from "../styles/project.module.css";
+import * as styles from "./styles/project.module.css";
 
 const ProjectCard = ({ project }) => {
   const isEven = project.id % 2 !== 0;

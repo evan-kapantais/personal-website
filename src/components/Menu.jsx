@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import * as styles from "../styles/menu.module.css";
+import * as styles from "./styles/menu.module.css";
 
 const Menu = ({ isMenuOpen }) => {
   return (

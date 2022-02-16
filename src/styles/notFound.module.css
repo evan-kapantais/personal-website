@@ -1,0 +1,42 @@
+.page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.page h1 {
+  font-size: var(--fontSize-8);
+  color: var(--primary-color);
+}
+
+.page p {
+  margin-bottom: 4rem;
+  font-size: var(--fontSize-3);
+}
+
+.page a {
+  font-size: var(--fontSize-3);
+  font-weight: var(--fontWeight-black);
+  transition: letter-spacing 500ms;
+}
+
+.page a:hover {
+  letter-spacing: 2px;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cursor {
+  animation: blink 1s infinite steps(1);
+}

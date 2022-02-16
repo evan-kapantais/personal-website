@@ -64,7 +64,11 @@ const IndexPage = ({ data }) => {
       </section>
       {/* About */}
       <section className={`${styles.indexSection} section`} id="about">
-        <h2 className={styles.sectionHeading}>
+        <h2
+          className={styles.sectionHeading}
+          data-aos="zoom-in"
+          data-aos-offset="0"
+        >
           <span className="headingTarget" data-text="whoami">
             whoami
           </span>
@@ -95,7 +99,11 @@ const IndexPage = ({ data }) => {
       </section>
       {/* Projects */}
       <section className={`${styles.indexSection} section`} id="projects">
-        <h2 className={styles.sectionHeading}>
+        <h2
+          className={styles.sectionHeading}
+          data-aos="zoom-in"
+          data-aos-offset="0"
+        >
           <span className="headingTarget" data-text="projects">
             projects
           </span>
@@ -109,7 +117,11 @@ const IndexPage = ({ data }) => {
       </section>
       {/* Wip */}
       <section className={`${styles.indexSection} section`} id="wip">
-        <h2 className={styles.sectionHeading}>
+        <h2
+          className={styles.sectionHeading}
+          data-aos="zoom-in"
+          data-aos-offset="0"
+        >
           <span className="headingTarget" data-text="inProgress">
             inProgress
           </span>
@@ -123,7 +135,11 @@ const IndexPage = ({ data }) => {
       </section>
       {/* Contact */}
       <section className={`${styles.indexSection} section`} id="contact">
-        <h2 className={styles.sectionHeading}>
+        <h2
+          className={styles.sectionHeading}
+          data-aos="zoom-in"
+          data-aos-offset="0"
+        >
           <span className="headingTarget" data-text="contact">
             contact
           </span>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as styles from "../styles/social.module.css";
+import * as styles from "./styles/social.module.css";
 
 import instagram from "../images/instagram.svg";
 import github from "../images/github.svg";
