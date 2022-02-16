@@ -34,7 +34,9 @@ const IndexPage = ({ data }) => {
     time < 13 ? "Good morning" : time < 18 ? "Good afternoon" : "Good evening";
 
   const farewell =
-    day > 4 ? "Have a nice weekend!" : `Have an awesome ${days[day]}!`;
+    day > 4
+      ? "Have a nice weekend!"
+      : `Have an awesome ${days[day]} ${time < 18 ? "☕️" : "🍻"}`;
 
   // Setup menu scrollbar
   useEffect(() => {
