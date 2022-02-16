@@ -9,27 +9,47 @@ const Menu = ({ isMenuOpen }) => {
       <nav>
         <div className={`${styles.scrollbar} nav-scrollbar`} />
         <ul>
-          <li data-aos="fade-left" data-aos-delay="1000">
+          <li
+            data-aos="fade-left"
+            data-aos-delay="1000"
+            data-aos-duration="400"
+          >
             <Link className="nav-link" to="#home">
               Home
             </Link>
           </li>
-          <li data-aos="fade-left" data-aos-delay="1100">
+          <li
+            data-aos="fade-left"
+            data-aos-delay="1100"
+            data-aos-duration="400"
+          >
             <Link className="nav-link" to="#about">
               About
             </Link>
           </li>
-          <li data-aos="fade-left" data-aos-delay="1200">
+          <li
+            data-aos="fade-left"
+            data-aos-delay="1200"
+            data-aos-duration="400"
+          >
             <Link className="nav-link" to="#projects">
               Projects
             </Link>
           </li>
-          <li data-aos="fade-left" data-aos-delay="1300">
+          <li
+            data-aos="fade-left"
+            data-aos-delay="1300"
+            data-aos-duration="400"
+          >
             <Link className="nav-link" to="#wip">
               In Progress
             </Link>
           </li>
-          <li data-aos="fade-left" data-aos-delay="1400">
+          <li
+            data-aos="fade-left"
+            data-aos-delay="1400"
+            data-aos-duration="400"
+          >
             <Link className="nav-link" to="#contact">
               Contact
             </Link>

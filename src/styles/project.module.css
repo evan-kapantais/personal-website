@@ -15,8 +15,6 @@
 .image {
   position: absolute !important;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   border-radius: 10px;
   width: 70%;
 }

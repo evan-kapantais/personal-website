@@ -9,14 +9,16 @@ const ProjectCard = ({ project }) => {
   const isEven = project.id % 2 !== 0;
 
   return (
-    <li className={`${styles.project} ${isEven && styles.even}`}>
-      <GatsbyImage
-        image={project.image.gatsbyImageData}
-        alt={project.title}
-        title={project.title}
-        className={`${styles.image} ${isEven ? styles.even : ""}`}
-      />
-      <article className={`${styles.text} ${isEven ? styles.even : ""}`}>
+    <li className={`${styles.project} ${isEven ? styles.even : ""}`}>
+      <div className={styles.imageWrapper} data-aos="centered-fade-left">
+        <GatsbyImage
+          image={project.image.gatsbyImageData}
+          alt={project.title}
+          title={project.title}
+          className={styles.image}
+        />
+      </div>
+      <article className={styles.text}>
         <header className={styles.header} data-aos="fade-right">
           <span>{project.type} Project</span>
           <h3 className={styles.title}>{project.title}</h3>
@@ -28,7 +30,7 @@ const ProjectCard = ({ project }) => {
             </p>
           </section>
         </main>
-        <footer data-aos="fade-up" data-aos-delay="100">
+        <footer data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
           <Stack stack={project.stack} />
           <div>
             <a

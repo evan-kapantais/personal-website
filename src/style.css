@@ -74,6 +74,30 @@
   --animation-curve: cubic-bezier(0.37, 0.97, 0.51, 0.98);
 }
 
+/* Custom AOS animations */
+
+[data-aos="centered-fade-left"] {
+  opacity: 0;
+  transform: translate(100px, -50%);
+  transition-property: transform, opacity;
+}
+
+[data-aos="centered-fade-left"].aos-animate {
+  opacity: 1;
+  transform: translate(0px, -50%);
+}
+
+[data-aos="centered-fade-right"] {
+  opacity: 0;
+  transform: translate(-100px, -50%);
+  transition-property: transform, opacity;
+}
+
+[data-aos="centered-fade-right"].aos-animate {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
 /* HTML elements */
 
 *,
@@ -310,4 +334,13 @@ a > img {
 .nav-link.active {
   color: var(--primary-color);
   font-weight: var(--fontWeight-black);
+}
+
+/* Queries */
+
+@media (max-width: 800px) {
+  [data-aos="centered-fade-left"].aos-animate {
+    opacity: 1;
+    transform: translate(0px, 0);
+  }
 }
