@@ -19,6 +19,10 @@
   font-size: var(--fontSize-9);
 }
 
+.bannerContainer {
+  max-width: 900px;
+}
+
 .bannerContainer p {
   margin-bottom: 0;
   font-size: var(--fontSize-3);
