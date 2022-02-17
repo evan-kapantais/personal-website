@@ -44,9 +44,11 @@ const WipProject = ({ project }) => {
                     <img src={link} alt="website" width={20} />
                   </a>
                 )}
-                <a href={project.repoUrl}>
-                  <img src={github} alt="github" width={20} />
-                </a>
+                {project.repoUrl && (
+                  <a href={project.repoUrl}>
+                    <img src={github} alt="github" width={20} />
+                  </a>
+                )}
               </div>
             </div>
             <div
