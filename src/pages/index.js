@@ -79,8 +79,17 @@ const IndexPage = ({ data }) => {
         <section>
           <article className={styles.brief}>
             <p data-aos="fade-up" data-aos-duration="1000">
-              I am a web developer from Greece based somewhere between Athens
-              and Barcelona.
+              I am a web developer from Athens currently working as a frontend
+              developer at{" "}
+              <a
+                href="https://skroutz.gr"
+                target="_blank"
+                rel="noopener"
+                className={styles.skroutz}
+              >
+                Skroutz
+              </a>
+              , Greece's leading ecommerce platform.
             </p>
             <p data-aos="fade-up" data-aos-duration="1000">
               I specialise in creating interactive experiences and minimal UI

@@ -41,10 +41,12 @@ const ProjectCard = ({ project }) => {
               <img src={link} width={20} alt="project link" />
               <span className={styles.tooltip}>{project.siteUrl}</span>
             </a>
-            <a href={project.repoUrl} className={styles.link}>
-              <img src={github} width={20} alt="project github" />
-              <span className={styles.tooltip}>{project.repoUrl}</span>
-            </a>
+            {project.repoUrl && (
+              <a href={project.repoUrl} className={styles.link}>
+                <img src={github} width={20} alt="project github" />
+                <span className={styles.tooltip}>{project.repoUrl}</span>
+              </a>
+            )}
           </div>
         </footer>
       </article>
